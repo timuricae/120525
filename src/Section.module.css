@@ -1,0 +1,183 @@
+.header {
+	height: 30px;
+	background: #8aacff;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding-inline: 17px;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	border-radius: 2px;
+}
+
+.header_text {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+/* ====================================================================================================== */
+
+.main_nav {
+	width: 348px;
+	height: calc(100vh - 30px - 52px);
+}
+
+.main {
+	display: flex;
+	height: calc(100vh - 30px - 52px);
+}
+
+.item_text {
+	width: 245px;
+}
+
+.firstItem {
+	display: flex;
+	flex-direction: column;
+	gap: 71px;
+	background: #8aacff;
+	padding: 32px 21px;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	border-radius: 2px;
+}
+
+.secondItem {
+	padding: 32px 21px;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	border-radius: 2px;
+	color: #000;
+}
+
+.thirdItem {
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	border-radius: 2px;
+	padding: 32px 21px;
+	color: #000;
+}
+
+.active .secondItem {
+	background: #f4f4f4;
+}
+
+/* ====================================================================================================== */
+
+.progress {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+.progressText {
+	font-size: 16px;
+	font-weight: 500;
+	text-align: left;
+  }
+.progressLine {
+	width: 100%;
+	/* гарантируем, что прогресс будет отображаться на 100% */
+	height: 10px;
+	background-color: #f0f0f0;
+	border-radius: 5px;
+	position: relative;
+	overflow: hidden;
+}
+
+.progressLine>div {
+	height: 100%;
+	background-color: #4caf50;
+	/* Зеленый цвет для прогресса */
+	border-radius: 5px;
+	transition: width 0.3s ease;
+}
+
+
+.main_content {
+	border-radius: 2px;
+	width: 100%;
+}
+
+.main_header {
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	padding: 9px 12px;
+	height: 150px;
+}
+
+.main_header_title {
+	margin-top: 35px;
+	margin-left: 121px;
+}
+
+/* ====================================================================================================== */
+
+.content {
+	/*border: 1px solid #000; */
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	width: 100%;
+	height: calc(100vh - 30px - 52px - 150px);
+	/*  vh - viewport height; 30 px - header, 52  px - footer, 200 px - item width */
+	padding: 53px 0;
+	overflow-y: scroll;
+	/* благодаря этому это листается вниз  */
+}
+
+.content_info {
+	width: 100%;
+	max-width: 694px;
+	/* огрраничивает горизонтальное растяжение текста */
+	margin: 0 auto;
+	font-family: var(--font-family);
+	font-weight: 400;
+	font-size: 24px;
+	line-height: 167%;
+	/* расстояние между строк */
+}
+
+.content_text {
+	margin-bottom: 50px;
+}
+
+.content_text_bg {
+	background: rgba(229, 178, 179, 0.87);
+}
+
+.content_info_list li {
+	list-style-type: disc;
+	margin-left: 20px;
+}
+
+.content_logo {
+	display: flex;
+	justify-content: space-evenly;
+	flex-wrap: wrap;
+	/* элементы переносятся на новую строку, если не помещаются в одну */
+	row-gap: 30px;
+}
+
+/* ====================================================================================================== */
+
+.footer {
+	height: 52px;
+	background: #8aacff;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding-inline: 16px;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	border-radius: 2px;
+}
+
+.footer button {
+	width: 174px;
+	height: 32px;
+}
+
+.footer_prev,
+.footer_next {
+	display: flex;
+	gap: 10px;
+	align-items: center;
+}
+
+.disabledButton {
+	opacity: 0.5;
+	cursor: not-allowed;
+}

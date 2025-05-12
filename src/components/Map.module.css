@@ -1,0 +1,260 @@
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.mapWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mapTitle {
+    margin-bottom: 10px;
+    /* Отступ между заголовком и картой */
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.containerWorldMap {
+    position: relative;
+  
+}
+
+.backgroundWorldMap {
+    width: 100%;
+    height: auto;
+    display: block;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+    /* тень */
+}
+
+.btnWorldMap {
+    /* transition: box-shadow 0.3s ease-in-out; */
+    animation: pulse 1.5s infinite;
+    position: absolute;
+    border: none;
+    background-color: #bdbdbd;
+    /* Цвет фона */
+    border-radius: 50%;
+    /* Круглая форма */
+    padding: 8px;
+    /* Немного отступов, чтобы иконка не касалась краев */
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    /* Ширина кнопки */
+    height: 32px;
+    /* Высота кнопки */
+
+}
+
+.btnWorldMap:hover {
+    /* box-shadow: 0 0 10px 3px rgba(189, 189, 189, 0.7); */
+    background-color: #ffffff;
+    border: 1px solid #2196F3;
+}
+
+.btnWorldMap svg {
+    width: 50px;
+    height: 20.5px;
+    fill: #959494;
+    /* Начальный цвет иконки */
+    transition: fill 0.3s ease;
+    /* Плавное изменение цвета */
+}
+
+/* Состояние при наведении */
+.btnWorldMap:hover svg {
+    fill: #2196F3;
+    /* Цвет иконки при наведении */
+}
+
+/* Состояние кнопки при активации (когда открыто модальное окно) */
+.btnWorldMap.active {
+    /* width: 30px;
+    height: 30px; */
+    background-color: #2196F3;
+    /* Цвет фона кнопки */
+    border: 1px solid #ffffff;
+    /* Белая граница */
+    animation: none;
+    /* Отключаем анимацию пульсации */
+}
+
+.btnWorldMap.active svg {
+    fill: #ffffff;
+    /* Цвет иконки при активной кнопке */
+}
+
+
+.Modal {
+    position: fixed; /* Положение фиксированное */
+    z-index: 9999; /* Убедитесь, что окно поверх всех элементов */
+    width: 650px;
+    max-height: 600px;
+    background: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    font-family: 'PT Serif', serif;
+    line-height: 1.5;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    transform: translateY(-10px); /* Даем небольшой отступ сверху, если нужно */
+}
+
+.buttonModalClose {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    border: none;
+    background-color: #bdbdbd;
+    border-radius: 50%;
+    padding: 8px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+    transition: background-color 0.15s ease-in-out, border 0.15s ease-in-out;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.buttonModalClose:hover {
+    background-color: #ffffff;
+    border: 1px solid #2196F3;
+}
+
+/* Стили для SVG */
+.buttonModalClose svg {
+    width: 12px;
+    height: 12px;
+    fill: #959494;
+    transition: fill 0.1s ease-in-out;
+    /* Ускоренный эффект */
+}
+
+/* Состояние при наведении */
+.buttonModalClose:hover svg {
+    fill: #2196F3;
+}
+
+
+.modalContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
+    /* Занимает всю доступную высоту */
+}
+
+.modalContent h1 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: left;
+    margin-top: 40px;
+    /* Отступ, чтобы заголовок не скрывался под кнопкой */
+}
+
+.modalContent img {
+    width: 300px;
+    height: 300px;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.textContainer {
+    width: 100%;
+    padding: 0 15px;
+    overflow-y: auto;
+    /* Прокрутка внутри контейнера */
+}
+
+.textContainer p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.learnMoreBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    height: 43px;
+    background-color: #bdbdbd;
+    /* Цвет заливки */
+    border-radius: 32px;
+    /* Скругление углов */
+    font-family: 'Roboto Slab', serif;
+    /* Шрифт */
+    font-weight: bold;
+    font-size: 18px;
+    color: black;
+    /* Черный цвет текста */
+    text-decoration: none;
+    margin: 20px auto 0;
+    /* Центрирование */
+    text-align: center;
+    transition: background-color 0.2s ease-in-out;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.learnMoreBtn:hover {
+    background-color: white;
+    /* Белый фон при наведении */
+    border: 1px solid #2196F3;
+    /* Голубая обводка */
+    color: #2196F3;
+    /* Голубой цвет текста */
+}
+
+.container {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.list {
+    list-style-type: disc; /* Обеспечивает отображение маркированных пунктов */
+    margin-left: 20px; /* Отступ слева для списка */
+    line-height: 1.6; /* Межстрочный интервал для списка */
+}
+
+.list li {
+    margin-bottom: 10px; /* Отступ снизу для элементов списка */
+    font-size: 1rem; /* Размер шрифта */
+    color: #555; /* Цвет текста элементов списка */
+}
+
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 9998;
+  }
+  

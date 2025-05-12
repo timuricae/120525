@@ -1,0 +1,222 @@
+.wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+.card {
+  position: relative;
+  width: 600px;
+  height: 600px;
+  perspective: 1500px;
+}
+
+.flip {
+  position: relative;
+  width: 600px;
+  height: 600px;
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
+  transform-origin: center center;
+}
+
+.flipped {
+  transform: rotateY(180deg);
+}
+
+.front {
+  background-color: #6495ED;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  /* Лишний скролл на передней не нужен */
+  border-radius: 12px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  backface-visibility: hidden;
+  transform-origin: center center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+
+.front img {
+  max-width: 80%;
+  max-height: 80%;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+.back {
+  background-color: white;
+  transform: rotateY(180deg);
+  text-align: left;
+  line-height: 1.6;
+  font-size: 18px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  backface-visibility: hidden;
+  display: flex; /* <--- ВНИМАНИЕ: flex */
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  transform-origin: center center;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+
+
+.cardBackContent {
+  height: 100%;
+  overflow-y: auto;
+  padding-right: 8px;
+  padding-bottom: 16px;
+  box-sizing: border-box;
+}
+
+
+.btns {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+
+.btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #bdbdbd;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background: white;
+  border: 1px solid #2196f3;
+  color: #2196f3;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: #e0e0e0;
+  color: #888;
+  border: none;
+}
+
+.counter {
+  font-size: 18px;
+  align-self: center;
+}
+
+.motionCard {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+}
+
+.syncIcon,
+.syncIconMirrored {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.syncIconMirrored {
+  transform: scaleX(-1);
+  /* отражаем иконку по горизонтали */
+}
+
+
+.callToAction {
+  font-family: 'Roboto Slab', serif;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 150%;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.slider {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+
+.slider img {
+  width: 300px;
+  height: auto;
+  max-height: 250px;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.slider button {
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.sliderItem {
+  display: flex;
+  flex-direction: column;
+  /* Размещение по вертикали */
+  align-items: center;
+  /* Выравнивание по центру */
+  justify-content: center;
+  /* Центрирование содержимого */
+}
+
+.caption {
+  font-family: 'Roboto Slab', serif;
+  font-weight: bold;
+  font-size: 16px;
+  /* Размер шрифта для подписи */
+  margin-top: 8px;
+  /* Отступ сверху */
+}
+
+.content_info {
+  width: 100%;
+  max-width: 694px;
+  margin: 0 auto;
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 167%;
+  margin-bottom: 50px;
+}
+
+.content_text {
+  margin-bottom: 50px;
+}
+
+.content_text_bg {
+background: #8aacff;
+}

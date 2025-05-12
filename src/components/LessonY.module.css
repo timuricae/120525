@@ -1,0 +1,177 @@
+/* Общие стили для контента урока */
+.lessonWrapper {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    font-family: var(--font-family);
+    font-size: 24px;
+    line-height: 167%;
+    padding: 30px 0;
+  }
+  
+  .lessonWrapper .imageCentered {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+  }
+  
+  .lessonWrapper img {
+    max-width: 100%;
+  }
+  
+  .lessonWrapper .paragraph {
+    margin-bottom: 30px;
+    text-align: justify;
+  }
+  
+  .lessonWrapper .paragraph b {
+    font-weight: 700;
+  }
+  
+  /* Уникальные стили для содержимого урока */
+  .lessonWrapper .lessonTitle {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .lessonWrapper .lessonSubTitle {
+    font-size: 28px;
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+  
+  .lessonWrapper .contentList {
+    list-style-type: disc;
+    margin-left: 20px;
+    margin-bottom: 30px;
+  }
+  
+  .lessonWrapper .contentList li {
+    margin-bottom: 10px;
+  }
+  
+  .lessonWrapper .highlightedText {
+    background-color: #eaf7ff;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .lessonWrapper .quote {
+    font-style: italic;
+    color: #6c6c6c;
+    border-left: 4px solid #5c93b3;
+    padding-left: 15px;
+    margin-bottom: 25px;
+  }
+  
+  /* Стили для кейса */
+  .lessonWrapper .caseStudy {
+    background: #f4f4f4;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .lessonWrapper .caseStudy h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+  
+  .lessonWrapper .caseStudy .caseDescription {
+    font-size: 20px;
+    line-height: 1.6;
+  }
+  
+  .lessonWrapper .caseStudy .caseOptions {
+    margin-top: 20px;
+  }
+  
+  .lessonWrapper .caseStudy .caseOptions li {
+    margin-bottom: 15px;
+  }
+  
+  .lessonWrapper .caseStudy .caseOptions li:hover {
+    background-color: #e5efff;
+    cursor: pointer;
+  }
+  
+  .lessonWrapper .taskWrapper {
+    background: #e5f0ff;
+    padding: 30px;
+    margin-top: 50px;
+    border-radius: 8px;
+  }
+  
+  .lessonWrapper .taskWrapper h3 {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 15px;
+  }
+  
+  .lessonWrapper .taskWrapper p {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .lessonWrapper .taskWrapper .taskButtons {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .lessonWrapper .taskWrapper .taskButton {
+    background: #4a90e2;
+    color: white;
+    padding: 15px 25px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .lessonWrapper .taskWrapper .taskButton:hover {
+    background: #357ab7;
+  }
+  
+
+  .content_info {
+    width: 100%;
+    max-width: 694px;
+    margin: 0 auto;
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 167%;
+  }
+  
+  .content_text {
+    margin-bottom: 50px;
+    display: block;
+  }
+  
+  .content_text_bg {
+    background: #8aacff;
+  }
+  
+  
+  .content_info_list li {
+    list-style-type: disc;
+    margin-left: 20px;
+  }
+  
+  h1, h2 {
+    font-family: 'Roboto Slab', serif;
+  }
+  
+  h1 {
+    font-size: 24px;
+    line-height: 1.5em;
+    margin-bottom: 10px;
+  }
+  
+  h2 {
+    font-size: 24px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+  

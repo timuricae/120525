@@ -1,0 +1,115 @@
+.slider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.slideWrapper {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sliderItem {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.imageWrapper {
+    width: auto;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.imageWrapper img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 2px;
+    object-fit: contain;
+}
+
+.counter {
+    margin-top: 8px;
+    font-size: 13px;
+    color: #666;
+    font-weight: 500;
+    font-family: 'PT Serif', serif;
+}
+
+.caption {
+    font-size: 14px;
+    margin-top: 4px;
+    font-family: 'PT Serif', serif;
+}
+
+/* Button styling */
+.roundButton {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: none;
+    background-color: #e0e0e0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s;
+    padding: 0;
+}
+
+.left {
+    left: 10px;  /* Increased proximity to the image */
+}
+
+.right {
+    right: 10px;  /* Increased proximity to the image */
+}
+
+.roundButton.active {
+    background-color: #2196F3;
+    border: 1px solid #ffffff;
+}
+
+.roundButton.active svg {
+    fill: #ffffff;
+}
+
+.roundButton:hover:not(:disabled) {
+    background-color: #ccc;
+}
+
+.roundButton:disabled {
+    opacity: 0.4;
+    cursor: default;
+    background-color: #e0e0e0;
+}
+
+.roundButton.active:disabled {
+    opacity: 1;
+    cursor: not-allowed;
+    background-color: #2196F3;
+}
+
+.roundButton svg {
+    width: 20px; /* Adjusted for better button size */
+    height: 20px; /* Adjusted for better button size */
+    fill: #959494;
+    transition: fill 0.3s ease;
+}
+
+.roundButton:hover svg {
+    fill: #2196F3;
+}

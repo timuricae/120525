@@ -1,0 +1,94 @@
+.journal_content {
+    width: 100%;
+    max-width: 694px;
+    margin: 0 auto;
+}
+
+.journal_content p {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 167%;
+    color: #000;
+    margin-bottom: 50px;
+}
+
+.journal_content p span {
+    font-weight: 700;
+}
+
+/* Модалка */
+
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modalContent {
+    background: #fff;
+    border-radius: 16px;
+    padding: 32px;
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+    position: relative;
+    animation: fadeIn 0.3s ease;
+}
+
+.modalImage {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+.modalText {
+    font-size: 20px;
+    line-height: 150%;
+    margin-bottom: 24px;
+}
+
+.modalButton {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #0070f3;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.modalButton:hover {
+    background-color: #005bb5;
+}
+
+.modalClose {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    background: transparent;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Анимация */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

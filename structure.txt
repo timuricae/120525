@@ -1,0 +1,168 @@
+.
+├── .DS_Store
+├── .gitignore
+├── .vercel
+│   ├── README.txt
+│   └── project.json
+├── README.md
+├── dist
+│   ├── assets
+│   │   ├── done-AmXdMu4q.svg
+│   │   ├── image1-Drzb3hsC.svg
+│   │   ├── image2-DG9_ceUY.svg
+│   │   ├── image3-Q_vwcWL8.svg
+│   │   ├── image4-CZyBAzG0.svg
+│   │   ├── image5-BctwLLRf.png
+│   │   ├── image6-CrTiR6kb.png
+│   │   ├── index-D80A8HB4.js
+│   │   ├── index-xfEzYehF.css
+│   │   ├── reset-wjhFUrTn.svg
+│   │   ├── saintPeter-0eeaL79x.png
+│   │   ├── suzhow-D-fOQUmI.png
+│   │   ├── venice-B07ITYzj.png
+│   │   └── worldMap-Ds1vtJEU.png
+│   └── index.html
+├── eslint.config.js
+├── index.html
+├── package-lock.json
+├── package.json
+├── public
+├── src
+│   ├── .DS_Store
+│   ├── App.tsx
+│   ├── HomePage.module.css
+│   ├── HomePage.tsx
+│   ├── Section.module.css
+│   ├── Section.tsx
+│   ├── assets
+│   │   ├── .DS_Store
+│   │   ├── 5map1.png
+│   │   ├── 5map2.png
+│   │   ├── EMarket
+│   │   │   ├── .DS_Store
+│   │   │   ├── artefact.png
+│   │   │   ├── audio.jpg
+│   │   │   ├── cultureRF.png
+│   │   │   ├── gosCatalog.png
+│   │   │   ├── minCulture.svg
+│   │   │   ├── potanin.jpg
+│   │   │   ├── presCulture1.png
+│   │   │   └── rnf.jpg
+│   │   ├── ICQ
+│   │   │   ├── .DS_Store
+│   │   │   ├── icq_contacts.png
+│   │   │   ├── icq_fallen.png
+│   │   │   ├── icq_logo.png
+│   │   │   └── icq_status.png
+│   │   ├── MEMap.png
+│   │   ├── Manzanar
+│   │   │   ├── s1s1.png
+│   │   │   ├── s1s2.png
+│   │   │   ├── s1s3.png
+│   │   │   ├── s1s4.png
+│   │   │   ├── s2s1.png
+│   │   │   └── s2s2.png
+│   │   ├── close.png
+│   │   ├── close.svg
+│   │   ├── culturaViva.png
+│   │   ├── dig1.png
+│   │   ├── dig2.jpg
+│   │   ├── done.svg
+│   │   ├── image1.svg
+│   │   ├── image2.svg
+│   │   ├── image3.svg
+│   │   ├── image4.svg
+│   │   ├── interdisciplinary
+│   │   │   ├── .DS_Store
+│   │   │   ├── anthro.png
+│   │   │   ├── arche.png
+│   │   │   ├── archeEx1.png
+│   │   │   ├── archeEx2.png
+│   │   │   ├── artefact.png
+│   │   │   ├── histo.png
+│   │   │   ├── histoEx1.png
+│   │   │   ├── histoEx2.png
+│   │   │   ├── humanGenome.png
+│   │   │   ├── ped.png
+│   │   │   ├── pedEx2.png
+│   │   │   └── socialM.png
+│   │   ├── left.svg
+│   │   ├── lifeCycle.png
+│   │   ├── linux.png
+│   │   ├── location-icon.svg
+│   │   ├── location.svg
+│   │   ├── map2.jpg
+│   │   ├── middleEast
+│   │   │   ├── .DS_Store
+│   │   │   ├── petra.png
+│   │   │   ├── pyramid.png
+│   │   │   └── troy.png
+│   │   ├── moodle.png
+│   │   ├── postdig1.png
+│   │   ├── predig1.jpg
+│   │   ├── predig2.jpg
+│   │   ├── reset.svg
+│   │   ├── right.svg
+│   │   ├── saintPeter.png
+│   │   ├── suzhow.png
+│   │   ├── sync1.svg
+│   │   ├── venice.png
+│   │   └── worldMap.png
+│   ├── components
+│   │   ├── CaseStudyQuestion.module.css
+│   │   ├── CaseStudyQuestion.tsx
+│   │   ├── EMarket.module.css
+│   │   ├── EMarket.tsx
+│   │   ├── FinalLesson.tsx
+│   │   ├── FlipCardSlider.module.css
+│   │   ├── FlipCardSlider.tsx
+│   │   ├── ICQ.module.css
+│   │   ├── ICQ.tsx
+│   │   ├── ImageSlider.module.css
+│   │   ├── ImageSlider.tsx
+│   │   ├── Lesson1.module.css
+│   │   ├── Lesson1.tsx
+│   │   ├── Lesson10.module.css
+│   │   ├── Lesson10.tsx
+│   │   ├── Lesson11.module.css
+│   │   ├── Lesson11.tsx
+│   │   ├── Lesson2.module.css
+│   │   ├── Lesson2.tsx
+│   │   ├── Lesson3.module.css
+│   │   ├── Lesson3.tsx
+│   │   ├── Lesson4.module.css
+│   │   ├── Lesson4.tsx
+│   │   ├── Lesson5.module.css
+│   │   ├── Lesson5.tsx
+│   │   ├── Lesson6.module.css
+│   │   ├── Lesson6.tsx
+│   │   ├── Lesson8.module.css
+│   │   ├── Lesson8.tsx
+│   │   ├── Lesson9.module.css
+│   │   ├── Lesson9.tsx
+│   │   ├── LessonY.module.css
+│   │   ├── LessonY.tsx
+│   │   ├── LessonZ.tsx
+│   │   ├── Lessonx.tsx
+│   │   ├── Map.module.css
+│   │   ├── Map.tsx
+│   │   ├── PreTask.module.css
+│   │   ├── PreTask.tsx
+│   │   ├── dragDrop1.tsx
+│   │   ├── dragDrop2.module.css
+│   │   └── dragDrop2.tsx
+│   ├── courseData.tsx
+│   ├── data.tsx
+│   ├── index.css
+│   ├── main.tsx
+│   ├── progressConfig.tsx
+│   ├── useSectionProgress.tsx
+│   └── vite-env.d.ts
+├── structure.txt
+├── tsconfig.app.json
+├── tsconfig.json
+├── tsconfig.node.json
+├── vercel.json
+└── vite.config.ts
+
+13 directories, 153 files

@@ -1,0 +1,39 @@
+.map_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.container {
+    padding: 20px;
+  }
+  
+  .list {
+    list-style-type: disc;
+    margin-left: 20px;
+  }
+  
+  h2 {
+    margin-top: 20px;
+    font-size: 1.5rem;
+    color: #333;
+  }
+  
+  .content_info {
+    width: 100%;
+    max-width: 694px;
+    margin: 0 auto;
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 167%;
+}
+
+.content_text {
+    margin-bottom: 50px;
+}
+
+.content_text_bg {
+  background: #8aacff;
+}

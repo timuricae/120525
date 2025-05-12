@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif&display=swap');
+
+:root {
+    --font-family: 'PT Serif', serif;
+}
+
+.content_info {
+    width: 100%;
+    max-width: 694px;
+    margin: 0 auto;
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 167%;
+}
+
+.content_text {
+    margin-bottom: 50px;
+    display: block;
+}
+
+.content_text_bg {
+    background: #8aacff;
+}
+
+.content_info_list li {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+
+h1, h2 {
+    font-family: 'Roboto Slab', serif;
+}
+
+h1 {
+    font-size: 24px;
+    line-height: 1.5em;
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 24px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+
+.map_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
