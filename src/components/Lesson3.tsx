@@ -84,7 +84,7 @@ const Lesson3 = () => {
       {showQuestion && (
         <>
           <CaseStudyQuestion
-            questionId='4'
+            questionId='1-1'
             question={
               <>
                 <h2>К какому типу ЦКН относится проект Виллы Мистерий?</h2>
@@ -120,7 +120,7 @@ const Lesson3 = () => {
           />
 
           <CaseStudyQuestion
-            questionId='4'
+            questionId='1-2'
             sectionId={2}
             lessonId={1}
             question={
@@ -159,7 +159,7 @@ const Lesson3 = () => {
           />
 
           <CaseStudyQuestion
-            questionId='5'
+            questionId='1-3'
             question={
               <>
                 <h2>Проект "Living Architecture: Casa Batlló"</h2>
@@ -209,7 +209,7 @@ const Lesson3 = () => {
           />
 
           <CaseStudyQuestion
-            questionId='6'
+            questionId='1-4'
             question={
               <>
               <h2>Какой тип цифрового наследия демонстрирует проект Telegarden?</h2>

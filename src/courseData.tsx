@@ -15,6 +15,8 @@ import LessonY from './components/LessonY.tsx'
 import LessonZ from './components/LessonZ.tsx'
 import Sec3CaseStudies from './components/Sec3CaseStudies.tsx';
 import Sec5CaseStudies from './components/Sec5CaseStudies.tsx';
+import LessonAntopolskiy from './components/LessonAntopolskiy.tsx';
+import PresCulture from './components/PresCulture.tsx';
 
 import { ComponentType, ReactNode } from "react";
 
@@ -166,12 +168,18 @@ export const courseData: CourseData = [
       },
       {
         id: 2,
+        component: LessonAntopolskiy,
+        title: 'Монография А. Б. Антопольского',
+
+      },
+      {
+        id: 3,
         component: Lesson9,
         title: 'Кейсы цифровой археологии',
 
       },
       {
-        id: 3,
+        id: 4,
         component: Sec3CaseStudies,
         title: 'Кейс-стади междисциплинарного подхода',
         interactions: {
@@ -255,14 +263,16 @@ export const courseData: CourseData = [
       },
       {
         id: 3,
+        component: PresCulture,
+        title: 'Проект "Сохраненная культура" ', 
+      },
+      {
+        id: 4,
         component: Sec5CaseStudies,
         title: 'Кейс-стади по инициатив в сфере ЦКН', interactions: {
           caseStudyQuestions: 3,
         }
-
-
       },
-
 
     ],
   },
