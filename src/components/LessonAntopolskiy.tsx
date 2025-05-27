@@ -268,9 +268,9 @@ export default function LessonAntopolskiy() {
                                 title={`Перетащите в категорию (правильный ответ: ${item.correct})`}
                             >
                                 <span>{item.text}</span>
-                                {item.image && (
+                                {/* {item.image && (
                                     <img src={item.image} alt="" style={{ width: 200, height: 200, objectFit: 'cover', borderRadius: 4 }} />
-                                )}
+                                )} */}
 
                             </div>
                         ))}
