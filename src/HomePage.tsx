@@ -2,20 +2,20 @@ import { NavLink } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import courseData from './courseData';
 import styles from './HomePage.module.css';
+import BadgesCollectionModal from './badges/BadgesCollectionModal';
+import { getBadges } from './badges/badgesUtils';
+import { Badge } from './badges/badgesData';
+import React, { useState } from 'react';
+import { useProgressContext } from './ProgressContext';
 
 const colorThemes = [
-    '#A1C6EA', // светлый голубой (хороший контраст с черным)
-    '#A8D5BA', // светлый зеленый
-    '#D8C1C1', // мягкий розово-коричневый
-    '#B1A7D4', // светлый лавандовый
-    '#D2E8D5', // теплый желтый, но не яркий
-    '#9FD6D2', // бледно-голубой с мятным оттенком
-    '#F2B6B6', // пастельный розовый, сдержанный
-    '#D2E8D5', // светлый оливковый
-  ];
-  
+    '#A1C6EA', '#A8D5BA', '#D8C1C1', '#B1A7D4',
+    '#D2E8D5', '#9FD6D2', '#F2B6B6', '#D2E8D5'
+];
+
 const icons = [
-    '🌍', '📚', '🕰️', '🔬', '🔄', '🏛️', '🧠', '📡', '🎨', '🚀', '🧩', '💾'
+    '🌍', '📚', '🕰️', '🔬', '🔄', '🏛️',
+    '🧠', '📡', '🎨', '🚀', '🧩', '💾'
 ];
 
 const containerVariants = {
@@ -44,7 +44,19 @@ const itemVariants = {
     },
 };
 
+const getSizeClass = (lessonCount: number): string => {
+    if (lessonCount === 1) return styles.xsmall;
+    if (lessonCount === 2) return styles.small;
+    if (lessonCount === 3) return styles.medium;
+    if (lessonCount <= 5) return styles.large;
+    return styles.xlarge;
+};
+
 const HomePage = () => {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const badges: Badge[] = getBadges();
+    const { getSectionProgress } = useProgressContext();
+
     return (
         <>
             <div className={styles.heroSection}>
@@ -57,11 +69,13 @@ const HomePage = () => {
                 </p>
             </div>
 
-
             <div className={styles.HomePageContainer}>
-
-
                 <h1 className={styles.HomePageTitle}>Выберите раздел, чтобы начать:</h1>
+
+                <button className={styles.badgeButton} onClick={() => setIsModalOpen(true)}>
+                    🎖 Мои бейджи
+                </button>
+
                 <motion.ul
                     className={styles.BentoGrid}
                     variants={containerVariants}
@@ -72,22 +86,14 @@ const HomePage = () => {
                         const lessonCount = section.lessons.length;
                         const color = colorThemes[i % colorThemes.length];
                         const icon = icons[i % icons.length];
+                        const sizeClass = getSizeClass(lessonCount);
 
-                        const sizeClass = lessonCount >= 3 ? styles.large
-                            : lessonCount === 2 ? styles.medium
-                                : styles.small;
+                        const { completed } = getSectionProgress(section.id);
 
-                        // Подсчёт всех интеракций в уроках раздела
 
-                        let questionTotal = 0;
-
-                        section.lessons.forEach(lesson => {
-                            const interactions = lesson.interactions;
-                            if (interactions) {
-
-                                questionTotal += (interactions.caseStudyQuestions || 0);
-                            }
-                        });
+                        const questionTotal = section.lessons.reduce((acc, lesson) => {
+                            return acc + (lesson.interactions?.caseStudyQuestions || 0);
+                        }, 0);
 
                         return (
                             <motion.li
@@ -99,7 +105,21 @@ const HomePage = () => {
                                 whileHover={{ scale: 1.03, rotate: 1 }}
                             >
                                 <NavLink to={`/section/${section.id}/lesson/1`} className={styles.Link}>
-                                    <span className={styles.Icon}>{icon}</span>
+                                    <div className={styles.IconWithProgress}>
+                                        <span className={styles.Icon}>{icon}</span>
+                                        <div className={styles.ProgressWrapper}>
+                                            <div className={styles.ProgressLabel}>
+                                                Прогресс: {Math.round(completed)}%
+                                            </div>
+                                            <div className={styles.ProgressBarContainer}>
+                                                <div
+                                                    className={styles.ProgressBarFill}
+                                                    style={{ width: `${Math.round(completed)}%` }}
+                                                />
+                                            </div>
+                                        </div>
+                                    </div>
+
                                     <h2 className={styles.SectionTitle}>{section.title}</h2>
                                     <div className={styles.interactionStats}>
                                         ❓ Кейс-стади: {questionTotal}
@@ -107,12 +127,18 @@ const HomePage = () => {
                                     <div className={styles.BentoOverlay} />
                                     <p className={styles.Description}>{section.content}</p>
                                 </NavLink>
-
                             </motion.li>
                         );
                     })}
                 </motion.ul>
             </div>
+
+            {isModalOpen && (
+                <BadgesCollectionModal
+                    badges={badges}
+                    onClose={() => setIsModalOpen(false)}
+                />
+            )}
         </>
     );
 };

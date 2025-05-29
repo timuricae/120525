@@ -124,17 +124,29 @@ p {
 
 
 /* Размеры */
-.small {
+.xsmall {
   grid-column: span 1;
   grid-row: span 1;
 }
-.medium {
+
+.small {
   grid-column: span 2;
   grid-row: span 1;
 }
-.large {
+
+.medium {
   grid-column: span 2;
   grid-row: span 2;
+}
+
+.large {
+  grid-column: span 3;
+  grid-row: span 2;
+}
+
+.xlarge {
+  grid-column: span 3;
+  grid-row: span 3;
 }
 
 /* Ссылка */
@@ -241,5 +253,85 @@ p {
 
 
 
+.badgeButton {
+  background-color: #fff8e1;
+  border: 2px solid #ffd54f;
+  color: #333;
+  font-weight: bold;
+  padding: 0.6rem 1.2rem;
+  border-radius: 12px;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+}
 
+.badgeButton:hover {
+  background-color: #ffecb3;
+}
 
+/* Вертикальные размеры */
+.tall {
+  grid-column: span 1;
+  grid-row: span 2;
+}
+
+.taller {
+  grid-column: span 1;
+  grid-row: span 3;
+}
+
+.verticalLarge {
+  grid-column: span 2;
+  grid-row: span 3;
+}
+
+.IconWithProgress {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.ProgressBarContainer {
+  flex-grow: 1;
+  height: 6px;
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.ProgressBarFill {
+  height: 100%;
+  background-color: #fff;
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+.ProgressWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex-grow: 1;
+}
+
+.ProgressLabel {
+  font-size: 20px;
+  font-family: 'Roboto Slab', serif;
+  color: #000000;
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+.ProgressBarContainer {
+  height: 6px;
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.ProgressBarFill {
+  height: 100%;
+  background-color: #ffffff;
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}

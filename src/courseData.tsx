@@ -291,7 +291,7 @@ export const courseData: CourseData = [
         component: FinalLesson,
         title: 'Итоговый тест',
         interactions: {
-          caseStudyQuestions: 11,
+          caseStudyQuestions: 12,
         }
       },
 

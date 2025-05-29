@@ -1,6 +1,10 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import courseData, { CourseData } from './courseData';
 
+import { getBadges, saveBadges } from './badges/badgesUtils';
+import { Badge } from './badges/badgesData';
+
+
 type LessonKey = `${number}-${number}`; // "sectionId-lessonId"
 
 interface ProgressState {
@@ -108,6 +112,37 @@ export const ProgressProvider: React.FC<{ children: React.ReactNode }> = ({ chil
 
     return { completed: completedInteractions, total: totalInteractions };
   };
+
+  useEffect(() => {
+    const badges = getBadges();
+    const updatedBadges = [...badges];
+    let hasUpdates = false;
+  
+    courseData.forEach((section) => {
+      const { completed } = getSectionProgress(section.id);
+  
+      const isSectionComplete = completed === 100;
+  
+      const badgeIndex = updatedBadges.findIndex(
+        (b) => b.sectionId === section.id && !b.achieved
+      );
+  
+      if (isSectionComplete && badgeIndex !== -1) {
+        updatedBadges[badgeIndex].achieved = true;
+        updatedBadges[badgeIndex].dateAchieved = new Date().toLocaleDateString('ru-RU', {
+          day: 'numeric',
+          month: 'long',
+          year: 'numeric',
+        });
+        hasUpdates = true;
+      }
+    });
+  
+    if (hasUpdates) {
+      saveBadges(updatedBadges);
+    }
+  }, [lessonProgress]);
+  
 
 
   return (
