@@ -122,7 +122,7 @@ const HomePage = () => {
 
                                     <h2 className={styles.SectionTitle}>{section.title}</h2>
                                     <div className={styles.interactionStats}>
-                                        ❓ Кейс-стади: {questionTotal}
+                                        ❓ Контрольных заданий: {questionTotal}
                                     </div>
                                     <div className={styles.BentoOverlay} />
                                     <p className={styles.Description}>{section.content}</p>
