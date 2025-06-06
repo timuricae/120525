@@ -37,7 +37,12 @@
     position: relative;
     opacity: 0.6;
     transition: transform 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    word-wrap: break-word;
   }
+  
   
   .achieved {
     background-color: #d0f5d8;
@@ -57,7 +62,13 @@
   .title {
     font-weight: bold;
     margin-bottom: 0.25rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    max-width: 100%;
+    font-size: 0.95rem;
   }
+  
   
   .desc {
     font-size: 0.9rem;

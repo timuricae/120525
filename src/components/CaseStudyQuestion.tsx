@@ -1,15 +1,10 @@
 import React, { useState } from "react";
 import styles from "../components/CaseStudyQuestion.module.css";
 import { ReactNode } from "react";
-import Confetti from "react-confetti";
-import { motion } from "framer-motion";
+import confetti from "canvas-confetti";
 
-
-import { useSectionProgress } from '../useSectionProgress.tsx';
-import { useProgressContext } from '../ProgressContext';
-
+import { useProgressContext } from "../ProgressContext";
 import courseData from "../courseData.tsx";
-
 
 interface CaseStudyQuestionProps {
     question: ReactNode;
@@ -22,8 +17,6 @@ interface CaseStudyQuestionProps {
     sectionId: number;
     lessonId: number;
     questionId: string;
-    // lessonId: string; 
-    // questionIndex: number;
 }
 
 const CaseStudyQuestion: React.FC<CaseStudyQuestionProps> = ({
@@ -37,26 +30,60 @@ const CaseStudyQuestion: React.FC<CaseStudyQuestionProps> = ({
     sectionId,
     lessonId,
     questionId
-    // lessonId,
-    // questionIndex
 }) => {
-    const { updateLessonProgress } = useProgressContext();
+    const { updateLessonProgress, markCaseStudyAsCompleted } = useProgressContext();
     const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
     const [isAnswered, setIsAnswered] = useState(false);
-    const [showCelebration, setShowCelebration] = useState(false); // 🎉 новое состояние
-    // const { progress, registerInteraction } = useSectionProgress(lessonId, courseData);  // Прогресс раздела
 
-    const { markCaseStudyAsCompleted } = useProgressContext();
+    const playSuccessSound = () => {
+        const audio = new Audio("/sounds/success.mp3");
+        audio.play().catch(() => {});
+    };
+
+    const runConfetti = () => {
+        const defaults = {
+            origin: { y: 0.7 },
+            spread: 80,
+            ticks: 500,
+            gravity: 0.9,
+            decay: 0.95,
+            startVelocity: 45,
+        };
+
+        confetti({
+            ...defaults,
+            particleCount: 100,
+            colors: ["#D4AF37", "#FFD700", "#FFEC8B", "#FFFACD"],
+            shapes: ["circle", "square"],
+            scalar: 1.2,
+        });
+
+        confetti({
+            ...defaults,
+            particleCount: 80,
+            angle: 120,
+            origin: { x: 0, y: 0.6 },
+        });
+
+        confetti({
+            ...defaults,
+            particleCount: 80,
+            angle: 60,
+            origin: { x: 1, y: 0.6 },
+        });
+
+        playSuccessSound();
+    };
 
     const handleSubmit = () => {
         if (selectedAnswer !== null) {
             setIsAnswered(true);
+
             if (selectedAnswer === correctAnswer) {
                 const isNew = markCaseStudyAsCompleted(sectionId, lessonId, questionId);
                 if (isNew) {
                     if (onSuccess) onSuccess();
-                    setShowCelebration(true);
-                    setTimeout(() => setShowCelebration(false), 2000);
+                    runConfetti();
 
                     const section = courseData.find(s => s.id === sectionId);
                     const lesson = section?.lessons.find(l => l.id === lessonId);
@@ -65,48 +92,12 @@ const CaseStudyQuestion: React.FC<CaseStudyQuestionProps> = ({
 
                     updateLessonProgress(sectionId, lessonId, increment);
                 }
-                if (onSuccess) {
-                    onSuccess();
-                }
             }
         }
     };
 
-
     return (
         <div className={styles.wrapper}>
-
-            {showCelebration && (
-                <div className={styles.celebration}>
-                    <Confetti
-                        width={window.innerWidth}
-                        height={window.innerHeight}
-                        recycle={false}
-                        numberOfPieces={400}
-                        gravity={0.3}
-                        initialVelocityX={10}
-                        initialVelocityY={15}
-                    />
-                    <div className={styles.flash} />
-                    {/* 🎇 Эмодзи-фейерверки */}
-                    <motion.div
-                        initial={{ scale: 0 }}
-                        animate={{ scale: 1, rotate: 360 }}
-                        transition={{ duration: 0.5 }}
-                        style={{
-                            position: "fixed",
-                            top: "30%",
-                            left: "50%",
-                            transform: "translate(-50%, -50%)",
-                            fontSize: "72px",
-                            zIndex: 10000,
-                        }}
-                    >
-                        🔥💯🔥
-                    </motion.div>
-                </div>
-            )}
-
             <div className={styles.task}>
                 <div className={styles.task_text}>
                     <b>{question}</b>
@@ -119,17 +110,15 @@ const CaseStudyQuestion: React.FC<CaseStudyQuestionProps> = ({
                             style={{
                                 width: "350px",
                                 height: "350px",
-                                objectFit: "cover", 
+                                objectFit: "cover",
                                 boxShadow: "0 4px 8px rgba(0, 0, 0, 0.3)",
                                 margin: "0 auto",
-                                display: "block"
+                                display: "block",
                             }}
                         />
-
                     </div>
                 )}
             </div>
-
 
             <div className={styles.question}>
                 <div className={styles.question_text}>
@@ -186,7 +175,6 @@ const CaseStudyQuestion: React.FC<CaseStudyQuestionProps> = ({
                             onClick={() => {
                                 setSelectedAnswer(null);
                                 setIsAnswered(false);
-                                setShowCelebration(false);
                             }}
                         >
                             <svg

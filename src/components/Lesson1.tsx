@@ -6,6 +6,7 @@ import venice from '../assets/venice.png';
 import saintPeter from '../assets/saintPeter.png';
 import suzhow from '../assets/suzhow.png';
 import courseData from '../courseData';
+import { useEffect } from 'react';
 
 const locations = [
     {
@@ -67,6 +68,10 @@ const locations = [
 ];
 
 const Lesson1 = () => {
+
+    useEffect(() => {
+        window.scrollTo({ top: 0, behavior: 'auto' });
+      }, []);
 
     return (
         <>

@@ -1,3 +1,7 @@
+* {
+	font-family: var(--font-family);
+  }
+
 .header {
 	height: 30px;
 	background: #8aacff;
@@ -20,7 +24,18 @@
 .main_nav {
 	width: 348px;
 	height: calc(100vh - 30px - 52px);
+	overflow-y: auto;
+	overflow-x: hidden;
 }
+
+.main_nav::-webkit-scrollbar {
+	width: 8px;
+}
+.main_nav::-webkit-scrollbar-thumb {
+	background-color: rgba(0, 0, 0, 0.2);
+	border-radius: 4px;
+}
+
 
 .main {
 	display: flex;
@@ -97,27 +112,28 @@
 
 .main_header {
 	border: 1px solid rgba(0, 0, 0, 0.1);
-	padding: 9px 12px;
-	height: 150px;
+	padding: 0 12px; /* убираем вертикальные отступы */
+	height: 90px;
+	display: flex;
+	align-items: center; /* выравнивание текста по центру вертикально */
 }
 
 .main_header_title {
-	margin-top: 35px;
-	margin-left: 121px;
+	margin-top: 15px; /* уменьшено с 35px */
+	margin-left: 40px; /* уменьшено с 121px */
+	margin: 0 0 0 40px; /* только отступ слева */
 }
 
 /* ====================================================================================================== */
 
 .content {
-	/*border: 1px solid #000; */
 	border: 1px solid rgba(0, 0, 0, 0.1);
 	width: 100%;
-	height: calc(100vh - 30px - 52px - 150px);
-	/*  vh - viewport height; 30 px - header, 52  px - footer, 200 px - item width */
+	height: calc(100vh - 30px - 52px - 90px); /* изменено с -150px на -90px */
 	padding: 53px 0;
 	overflow-y: scroll;
-	/* благодаря этому это листается вниз  */
 }
+
 
 .content_info {
 	width: 100%;

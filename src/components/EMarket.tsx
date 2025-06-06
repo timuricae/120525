@@ -163,7 +163,9 @@ const Card: React.FC<{ initiative: Initiative; onClick: () => void }> = ({ initi
     </div>
     <div className={styles.cardContent}>
       <p className={styles.cardTitle}>{initiative.title}</p>
-      <button className={styles.moreButton} onClick={onClick}>Узнать больше</button>
+      <div style={{ marginTop: 'auto' }}>
+        <button className={styles.moreButton} onClick={onClick}>Узнать больше</button>
+      </div>
     </div>
   </div>
 );
@@ -219,12 +221,12 @@ const EMarket: React.FC = () => {
       <div className={styles.content_info}>
         <h2 className={styles.content_text}>Знаете ли вы достаточно отвечественных иницатив и проектов в сфере ЦКН?</h2>
         <span className={styles.content_text}>
-          Взаимодействуйте с компонентом ниже, чтобы изучить инициативы. 
+          Взаимодействуйте с компонентом ниже, чтобы изучить инициативы.
           Используйте фильтры, чтобы контрастировать инициативы согласно классификации из предыдщего урока.
         </span>
-     
 
-      <h1>Каталог российских инициатив: </h1>
+
+        <h1>Каталог российских инициатив: </h1>
       </div>
 
       <div className={styles.filters}>

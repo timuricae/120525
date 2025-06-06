@@ -34,6 +34,8 @@ const dropData = {
   items: [], // заполни по необходимости
 };
 
+// ...весь импорт и начальная часть без изменений
+
 export default function Lesson4() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [definitions, setDefinitions] = useState<Record<Category, string>>({
@@ -119,7 +121,7 @@ export default function Lesson4() {
         )}
       </section>
 
-      <section>
+      <section className={styles.journal_content}>
         <p>
           Для глубокого понимания свойств цифрового культурного наследия рекомендуем изучить статью А. А. Никоновой из журнала “Культура&технологии” — доступна&nbsp;
           <a href="https://cat.ifmo.ru/index.php/en/2024/v9-i2/519" target="_blank" rel="noopener noreferrer">
@@ -129,7 +131,7 @@ export default function Lesson4() {
         <p>В этом уроке вам предстоит сформулировать свои определения ключевых терминов цифрового культурного наследия.</p>
       </section>
 
-      <section>
+      <section className={styles.journal_content}>
         <h2>Определения ключевых терминов</h2>
         <p><em>Напишите свои определения для каждого термина. После заполнения можно сравнить с определениями из статьи.</em></p>
         {dropData.categories.map((category) => (
@@ -179,9 +181,13 @@ export default function Lesson4() {
             <h3>Определения из статьи А. А. Никоновой</h3>
             {dropData.categories.map((cat) => (
               <div key={cat} style={{ marginBottom: 12 }}>
-                <strong>{cat}:</strong> {authorDefinitions[cat]}
+                <strong style={{ fontSize: 16 }}>{cat}:</strong>{' '}
+                <span style={{ fontWeight: 'bold', color: '#000', fontSize: 16 }}>
+                  {authorDefinitions[cat]}
+                </span>
               </div>
             ))}
+
           </div>
         )}
       </section>

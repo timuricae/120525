@@ -2,19 +2,15 @@ import styles from './Section.module.css';
 import { useNavigate, useLocation, NavLink, Outlet } from 'react-router-dom';
 import courseData, { SectionData } from './courseData.tsx';
 import { useProgressContext } from './ProgressContext';
-import { useEffect } from 'react';
+import { useEffect, useLayoutEffect } from 'react';
 
 const Section: React.FC = () => {
-
-
-
   const location = useLocation();
   const navigate = useNavigate();
 
   const pathParts = location.pathname.split('/');
   const sectionId = pathParts[2];
   const lessonId = parseInt(pathParts[4]);
-
 
   const { getSectionProgress } = useProgressContext();
   const sectionIdNum = parseInt(sectionId);
@@ -27,6 +23,11 @@ const Section: React.FC = () => {
       navigate('/');
     }
   }, [sectionId, lessonId, navigate]);
+
+  // Прокрутка наверх при смене урока
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
 
   const index = courseData.findIndex((s) => s.id === parseInt(sectionId));
   const currentSection = courseData[index];
@@ -62,7 +63,6 @@ const Section: React.FC = () => {
                   <div style={{ width: `${completed}%` }}></div>
                 </div>
               </div>
-
             </li>
 
             {currentSection.lessons.map((lesson) => (

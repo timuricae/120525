@@ -1,4 +1,4 @@
-import { useState, ReactNode } from "react";
+import { useState, useRef, useEffect, ReactNode } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 import ImageSlider from "../components/ImageSlider";
@@ -53,8 +53,7 @@ const cards: Card[] = [
           Организация цифровых архивов для хранения и предоставления доступа к данным археологических исследований.
         </li>
       </ul>
-    </div>
-    ,
+    </div>,
     sliderItems: [
       { src: archeEx1, caption: "Полевое исследование с использованием цифровых технологий" },
       { src: archeEx2, caption: "ГИС-карта раскопок" },
@@ -77,8 +76,7 @@ const cards: Card[] = [
           Использование технологий как инструментов в преподавании и исследованиях, а также изучение цифровых технологий как форм материальной культуры.
         </li>
       </ul>
-    </div>
-    ,
+    </div>,
     sliderItems: [
       {
         src: anthroEx1, caption: <div>
@@ -113,8 +111,7 @@ const cards: Card[] = [
           Создание новых исследовательских инструментов для историков, таких как анализ больших данных, 3D-моделирование и интеллектуальный анализ данных.
         </li>
       </ul>
-    </div>
-    ,
+    </div>,
     sliderItems: [
       { src: histoEx1, caption: "Изучение истории через виртуальную реальность" },
       { src: histoEx2, caption: "Использование анализ данных для перевода старинных документов" },
@@ -134,8 +131,7 @@ const cards: Card[] = [
           Обучение в цифровом обществе и доступ к объектам цифрового культурного наследия.
         </li>
       </ul>
-    </div>
-    ,
+    </div>,
     sliderItems: [
       {
         src: pedEx1, caption: <div>
@@ -151,7 +147,6 @@ const cards: Card[] = [
             LMS (Learning Management System) — это система управления обучением, которая предоставляет
             цифровую платформу для организации и контроля учебного процесса.
           </p>
-
         </div>
       },
     ],
@@ -168,42 +163,46 @@ const Lesson8 = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isFlipped, setIsFlipped] = useState(false);
   const [direction, setDirection] = useState(0);
-  const [slideIndex, setSlideIndex] = useState(0);
+
+  const cardBackContentRef = useRef<HTMLDivElement>(null);
+  const scrollPositionRef = useRef<number>(0);
 
   const nextCard = () => {
     if (currentIndex < cards.length - 1) {
+      scrollPositionRef.current = cardBackContentRef.current?.scrollTop ?? 0;
       setCurrentIndex((prev) => prev + 1);
       setIsFlipped(false);
-      setSlideIndex(0);
       setDirection(1);
     }
   };
 
   const prevCard = () => {
     if (currentIndex > 0) {
+      scrollPositionRef.current = cardBackContentRef.current?.scrollTop ?? 0;
       setCurrentIndex((prev) => prev - 1);
       setIsFlipped(false);
-      setSlideIndex(0);
       setDirection(-1);
     }
   };
+
+  useEffect(() => {
+    if (cardBackContentRef.current) {
+      cardBackContentRef.current.scrollTop = scrollPositionRef.current;
+    }
+  }, [currentIndex]);
 
   const currentCard = cards[currentIndex];
 
   return (
     <div className={styles.wrapper}>
-
       <section className={styles.content_info}>
         <div className={styles.content_text}>
-        <h2>Что такое междисциплинарный подход к ЦКН?</h2>
-      <span><span className={styles.content_text_bg}>Междисциплинарный подход к ЦКН</span> подразумевает интеграцию знаний и методов из различных областей науки и практики для решения комплексных задач, связанных с цифровыми объектами. Это может включать в себя:</span>
-     
-         
+          <h2>Что такое междисциплинарный подход к ЦКН?</h2>
+          <span><span className={styles.content_text_bg}>Междисциплинарный подход к ЦКН</span> подразумевает интеграцию знаний и методов из различных областей науки и практики для решения комплексных задач, связанных с цифровыми объектами.</span>
         </div>
       </section>
 
       <div className={styles.callToAction}>Поверните карточку, чтобы увидеть детали и изображения</div>
-     
 
       <div className={styles.card}>
         <AnimatePresence custom={direction} mode="wait">
@@ -228,11 +227,9 @@ const Lesson8 = () => {
                 <img src={sync} className={styles.syncIcon} alt="" />
               </div>
               <div className={styles.back}>
-                <div className={styles.cardBackContent}>
+                <div className={styles.cardBackContent} ref={cardBackContentRef}>
                   {currentCard.backText}
-
                   <ImageSlider items={currentCard.sliderItems} />
-
                 </div>
                 <img src={sync} className={styles.syncIconMirrored} alt="" />
               </div>
